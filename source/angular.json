@@ -78,9 +78,9 @@
             ],
             "scripts": [],
             "assets": [
-              "./source/web/favicon.ico",
-              "./source/web/assets",
-              "./source/web/manifest.json"
+              "./favicon.ico",
+              "web/assets",
+              "manifest.json"
             ]
           }
         },
