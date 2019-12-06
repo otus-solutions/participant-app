@@ -1,19 +1,19 @@
 {
   "configVersion": 1,
-  "timestamp": 1575577374606,
-  "index": "/participant-app/index.html",
+  "timestamp": 1575658286355,
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/participant-app/index.html",
-        "/participant-app/main.8180067a82f2d9e75445.js",
-        "/participant-app/polyfills-es5.90d289344a9e77c79e18.js",
-        "/participant-app/polyfills.05286decc86cd692cf3f.js",
-        "/participant-app/runtime.a8ef3a8272419c2e2c66.js",
-        "/participant-app/styles.761589f443293f62215d.css"
+        "/index.html",
+        "/main.2ae4772d03fcd38ccecb.js",
+        "/polyfills-es5.6b6d20bf7e270817ec87.js",
+        "/polyfills.b8d4c901b057615d897a.js",
+        "/runtime.a8ef3a8272419c2e2c66.js",
+        "/styles.0209a53dc68011d0e064.css"
       ],
       "patterns": []
     },
@@ -21,35 +21,18 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
-      "urls": [
-        "/participant-app/assets/icons/icon-128x128.png",
-        "/participant-app/assets/icons/icon-144x144.png",
-        "/participant-app/assets/icons/icon-152x152.png",
-        "/participant-app/assets/icons/icon-192x192.png",
-        "/participant-app/assets/icons/icon-384x384.png",
-        "/participant-app/assets/icons/icon-512x512.png",
-        "/participant-app/assets/icons/icon-72x72.png",
-        "/participant-app/assets/icons/icon-96x96.png"
-      ],
+      "urls": [],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/participant-app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "/participant-app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "/participant-app/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "/participant-app/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
-    "/participant-app/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/participant-app/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/participant-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "/participant-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
-    "/participant-app/index.html": "795386366467156bd14fb54ea5a37510326399e0",
-    "/participant-app/main.8180067a82f2d9e75445.js": "f9f16019a49ce6f9271fa773b305994a63ed3929",
-    "/participant-app/polyfills-es5.90d289344a9e77c79e18.js": "5236bba3508976ea03258a202270a0c60572bc1e",
-    "/participant-app/polyfills.05286decc86cd692cf3f.js": "aee015325456d467979a97ff9fe20cd964f31817",
-    "/participant-app/runtime.a8ef3a8272419c2e2c66.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/participant-app/styles.761589f443293f62215d.css": "4f9f145968b350f68d9a31acfc25100f1b2b88f5"
+    "/index.html": "82552fc230110906dd8b4edf5ee4a1aaee4574af",
+    "/main.2ae4772d03fcd38ccecb.js": "3914ba514d9683e8442c3c7b137159830efb9edf",
+    "/polyfills-es5.6b6d20bf7e270817ec87.js": "580183f741e8099b379857bbef78f572480cb00e",
+    "/polyfills.b8d4c901b057615d897a.js": "1d1b955c4b5ae158e3fbb7039af2091f6538d906",
+    "/runtime.a8ef3a8272419c2e2c66.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.0209a53dc68011d0e064.css": "4f9f145968b350f68d9a31acfc25100f1b2b88f5"
   },
   "navigationUrls": [
     {
