@@ -4,8 +4,8 @@
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "/participant-app",
-  "start_url": "/participant-app",
+  "scope": "/participant-app/participant-app/",
+  "start_url": "/participant-app/participant-app/",
   "icons": [
     {
       "src": "web/assets/icons/icon-72x72.png",
