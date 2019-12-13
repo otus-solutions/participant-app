@@ -15,23 +15,41 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import {AppAlertComponent, DashboardComponent, ErrorPageComponent, LoginComponent} from './components';
+import {AppAlertComponent, DashboardComponent, ErrorPageComponent, EventsComponent, LoginComponent, TasksComponent} from './components';
 import { environment } from '../environments/environment';
 import {SanitizeHtmlPipe} from './utils/sanitize-html/sanitize-html.pipe';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {CreateAccountComponent} from './components/account/create-account/create-account.component';
+import {EventService} from './providers/event.service';
+import {EventsComponent2} from './components/dashboard/tasks/events/events2/events.component';
+import {AddEventDirective} from './directves/addEvent.directive';
 
 
 @NgModule({
   declarations: [
+    EventsComponent,
     AppComponent,
+    EventsComponent2,
     LoginComponent,
     AppAlertComponent,
     DashboardComponent,
     ErrorPageComponent,
     SanitizeHtmlPipe,
-    CreateAccountComponent
+    CreateAccountComponent,
+    TasksComponent,
+    AddEventDirective
+  ],
+  entryComponents: [
+    EventsComponent,
+    EventsComponent2,
+    AppComponent,
+    LoginComponent,
+    AppAlertComponent,
+    DashboardComponent,
+    ErrorPageComponent,
+    CreateAccountComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +75,7 @@ import {CreateAccountComponent} from './components/account/create-account/create
     MatRadioModule
   ],
   providers: [
+    EventService,
     CookieService
   ],
   bootstrap: [AppComponent]

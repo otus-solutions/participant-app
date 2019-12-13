@@ -1,0 +1,5 @@
+﻿<div fxLayout="column" *ngFor="let item of participantEvents">
+    <events-component  [event]="this.eventList[item.name]">
+    </events-component>
+</div>
+

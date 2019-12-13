@@ -12,10 +12,12 @@ export class DashboardComponent implements OnInit {
   title = 'Otus Randomization';
   private action: string;
 
-  constructor(private router: Router, private ngZone: NgZone, private route: ActivatedRoute) {}
+  constructor(private router: Router, private ngZone: NgZone, private route: ActivatedRoute) {
+    this.ngZone.run(() => this.router.navigate(['dashboard/tasks'])).then();
+  }
 
   ngOnInit() {
-    // window.location.href='https://otus.hmg.ccem.ufrgs.br/otus';
+    this.ngZone.run(() => this.router.navigate(['dashboard/tasks'])).then();
   }
 
 }

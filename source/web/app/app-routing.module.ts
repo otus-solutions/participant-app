@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   ErrorPageComponent,
   DashboardComponent,
-  LoginComponent,
+  LoginComponent, EventsComponent, TasksComponent,
 } from './components';
 import {AuthGuard} from './utils';
 import {CreateAccountComponent} from './components/account/create-account/create-account.component';
@@ -19,13 +19,19 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'register/:action',
+    path: 'register/:email',
     component: CreateAccountComponent
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'tasks',
+        component: TasksComponent
+      }
+    ]
   },
   {
     path: '**',

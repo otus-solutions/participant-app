@@ -19,7 +19,6 @@
             "polyfills": "web/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "./favicon.ico",
               "web/assets",
               "manifest.json"
             ],
@@ -78,7 +77,6 @@
             ],
             "scripts": [],
             "assets": [
-              "./favicon.ico",
               "web/assets",
               "manifest.json"
             ]

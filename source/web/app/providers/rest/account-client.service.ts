@@ -13,22 +13,19 @@ export class AccountClientService {
   baseUrl: String;
   constructor(private http: HttpClient, private cookieService: CookieService) {
     if (this.cookieService.get(environment.API_URL)) {
-      this.baseUrl = this.cookieService.get(environment.API_URL) + '/api';
+      this.baseUrl = this.cookieService.get(environment.API_URL);
     } else {
       this.baseUrl = environment.baseUrl;
     }
   }
 
   public login(email: string, password: string, setCurrentUser: CallableFunction): Observable<any> {
-    setCurrentUser({user: {_id: 'teste', name: 'Adriano'}});
-    const b = new BehaviorSubject([{name: 'Adriano'}]);
-    const obs = b.asObservable();
-    return obs;
-    // return this.http.post<any>(`${this.baseUrl}${environment.loginUrl}`, { email, password })
-    //   .pipe(map(result => {
-    //     setCurrentUser(result.data);
-    //     return result.data;
-    //   }));
+    return this.http.post<any>(`${this.baseUrl}${environment.loginUrl}`, { email, password })
+      .pipe(map(result => {
+        result.data.user = {name: result.data.name};
+        setCurrentUser(result.data);
+        return result.data;
+      }));
   }
 
   public logout(clearLocalStorage) {
