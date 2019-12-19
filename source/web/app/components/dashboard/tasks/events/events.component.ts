@@ -1,7 +1,5 @@
 ﻿import {Component, ComponentFactoryResolver, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {AlertService} from '../../../../providers';
-import {EventsComponent2} from './events2/events.component';
-import {AddEventDirective} from '../../../../directves/addEvent.directive';
 
 @Component({
   selector: 'events-component',
@@ -11,15 +9,18 @@ import {AddEventDirective} from '../../../../directves/addEvent.directive';
 
 export class EventsComponent implements OnInit {
   @Input() public event: any;
-  public data: Object;
+  @Input() public data: any;
 
-  constructor(private alertService: AlertService, public viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(
+    private alertService: AlertService,
+    public viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit() {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.event);
 
     const componentRef = this.viewContainerRef.createComponent(componentFactory);
-    (<EventsComponent>componentRef.instance).data = this.event;
+    (<EventsComponent>componentRef.instance).data = this.data;
   }
 }

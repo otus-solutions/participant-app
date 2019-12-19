@@ -70,7 +70,7 @@
           "options": {
             "main": "web/test.ts",
             "polyfills": "web/polyfills.ts",
-            "tsConfig": "web/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "styles": [
               "styles.css"

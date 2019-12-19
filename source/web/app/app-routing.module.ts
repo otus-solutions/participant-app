@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {
-  ErrorPageComponent,
-  DashboardComponent,
-  LoginComponent, EventsComponent, TasksComponent,
-} from './components';
+
 import {AuthGuard} from './utils';
 import {CreateAccountComponent} from './components/account/create-account/create-account.component';
+import {LoginComponent} from './components/account/login/login.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {TasksComponent} from './components/dashboard/tasks/tasks.component';
+import {ErrorPageComponent} from './components/error-page/error-page.component';
 
 const routes: Routes = [
   {

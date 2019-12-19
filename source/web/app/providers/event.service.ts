@@ -1,12 +1,24 @@
 import { Injectable } from '@angular/core';
-import {EventsComponent} from '../components';
-import {EventsComponent2} from '../components/dashboard/tasks/events/events2/events.component';
+import {ActivityAutofillEventComponent} from '../components/dashboard/tasks/events/activity/activity-autofill-event.component';
+import {AccountClientService} from './rest/account-client.service';
+import {CookieService} from 'ngx-cookie-service';
+import {User} from '../model';
+import {BehaviorSubject} from 'rxjs';
+import {EventClientService} from './rest/event-client.service';
 
 @Injectable()
 export class EventService {
+
+  constructor(private client: EventClientService) {
+      }
+
   getEventComponents() {
     return {
-      event1: EventsComponent2
+      ActivityAutoFillEvent: ActivityAutofillEventComponent
     };
+  }
+
+  getParticipantEvents() {
+      this.client.getEvents();
   }
 }

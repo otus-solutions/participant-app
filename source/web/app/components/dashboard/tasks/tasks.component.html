@@ -1,5 +1,4 @@
-﻿<div fxLayout="column" *ngFor="let item of participantEvents">
-    <events-component  [event]="this.eventList[item.name]">
+﻿<div fxLayout="column" fxLayoutGap="5px" fxLayoutGap.gt-xs="5px">
+    <events-component *ngFor="let item of participantEvents" [event]="this.eventList[item.objectType]" [data]="item">
     </events-component>
 </div>
-

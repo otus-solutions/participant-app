@@ -15,7 +15,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccountClientService, AuthenticationService, AlertService} from '../../../providers';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
-import {SanitizeHtmlPipe} from '../../../utils';
 import {CookieService} from 'ngx-cookie-service';
 import { Alert } from 'selenium-webdriver';
 
@@ -46,9 +45,8 @@ describe('CreateAccountComponent', () => {
         MatInputModule,
         BrowserAnimationsModule
       ],
-      declarations: [ CreateAccountComponent, SanitizeHtmlPipe ],
+      declarations: [ CreateAccountComponent ],
       providers: [
-        SanitizeHtmlPipe,
         CookieService,
         AlertService,
         AuthenticationService,

@@ -7,7 +7,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatNativeDateModule, MatRadioModule, MatSidenavModule,
-  MatToolbarModule,
+  MatToolbarModule, MatTooltipModule,
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,41 +15,38 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import {AppAlertComponent, DashboardComponent, ErrorPageComponent, EventsComponent, LoginComponent, TasksComponent} from './components';
+
 import { environment } from '../environments/environment';
 import {SanitizeHtmlPipe} from './utils/sanitize-html/sanitize-html.pipe';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {CreateAccountComponent} from './components/account/create-account/create-account.component';
-import {EventService} from './providers/event.service';
-import {EventsComponent2} from './components/dashboard/tasks/events/events2/events.component';
-import {AddEventDirective} from './directves/addEvent.directive';
+import {EventService} from './providers';
+import {EventsComponent} from './components/dashboard/tasks/events/events.component';
+import {ActivityAutofillEventComponent} from './components/dashboard/tasks/events/activity/activity-autofill-event.component';
+import {LoginComponent} from './components/account/login/login.component';
+import {AppAlertComponent} from './components/alert/app-alert.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {ErrorPageComponent} from './components/error-page/error-page.component';
+import {TasksComponent} from './components/dashboard/tasks/tasks.component';
+import {EventClientService} from './providers/rest/event-client.service';
 
 
 @NgModule({
   declarations: [
     EventsComponent,
+    ActivityAutofillEventComponent,
     AppComponent,
-    EventsComponent2,
     LoginComponent,
     AppAlertComponent,
     DashboardComponent,
     ErrorPageComponent,
     SanitizeHtmlPipe,
     CreateAccountComponent,
-    TasksComponent,
-    AddEventDirective
+    TasksComponent
   ],
   entryComponents: [
-    EventsComponent,
-    EventsComponent2,
-    AppComponent,
-    LoginComponent,
-    AppAlertComponent,
-    DashboardComponent,
-    ErrorPageComponent,
-    CreateAccountComponent,
-    TasksComponent
+    ActivityAutofillEventComponent
   ],
   imports: [
     BrowserModule,
@@ -72,10 +69,12 @@ import {AddEventDirective} from './directves/addEvent.directive';
     AppRoutingModule,
     MatCardModule,
     MatDatepickerModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTooltipModule
   ],
   providers: [
     EventService,
+    EventClientService,
     CookieService
   ],
   bootstrap: [AppComponent]
