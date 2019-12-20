@@ -1,6 +1,7 @@
-﻿import {Component, OnInit, OnDestroy} from '@angular/core';
+﻿import {Component, OnInit, OnDestroy, NgZone} from '@angular/core';
 import {AlertService} from '../../../providers';
 import {EventService} from '../../../providers/event.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'tasks',
@@ -11,28 +12,31 @@ import {EventService} from '../../../providers/event.service';
 export class TasksComponent implements OnInit, OnDestroy {
   participantEvents = [];
   private eventList: Object;
+  isLoading = false;
+  private projects: any;
+  eventListNotFound = false;
 
-  constructor(private alertService: AlertService, private eventService: EventService) {
+
+  constructor(private alertService: AlertService, private eventService: EventService, private router: Router, private ngZone: NgZone) {
     this.eventList = this.eventService.getEventComponents();
   }
 
   ngOnInit() {
-    this.participantEvents = [
-      {
-        _id: '789',
-        objectType: 'ActivityAutoFillEvent',
-        activityId: 123,
-        participant: 456,
-        name: 'ACTIMETRIA ATIVAÇÃO',
-        acronym: 'ACT',
-        description: 'description',
-        status: {
-          objectType: 'StatusEvent',
-          label: 'WAITING',
-          statusDate: '2019-12-11T18:01:15.129Z'
+    const ownerId = this.eventService.getOwner();
+    if (ownerId) {
+      this.isLoading = true;
+      this.eventService.getParticipantEvents(ownerId).subscribe(response => {
+        if (response['data']) {
+          this.participantEvents = response['data'].eventList;
         }
-      }
-    ];
+        this.isLoading = false;
+      }, error => {
+        this.eventListNotFound = true;
+        this.isLoading = false;
+      });
+    } else {
+      this.ngZone.run(() => this.router.navigate(['/login'])).then();
+    }
   }
 
   ngOnDestroy() {

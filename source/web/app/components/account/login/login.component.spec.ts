@@ -14,11 +14,11 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BehaviorSubject, throwError} from 'rxjs';
-import {SanitizeHtmlPipe} from '../../../utils';
 import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import { AlertService } from 'web/app/providers';
+import {SanitizeHtmlPipe} from '../../../utils/sanitize-html/sanitize-html.pipe';
 
 describe('LoginComponent', () => {
   let component;
@@ -41,7 +41,7 @@ describe('LoginComponent', () => {
         MatIconModule
       ],
       declarations: [ LoginComponent, SanitizeHtmlPipe ],
-      providers: [SanitizeHtmlPipe, CookieService, AlertService],
+      providers: [ CookieService, AlertService, SanitizeHtmlPipe],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
@@ -106,11 +106,4 @@ describe('LoginComponent', () => {
     expect(authenticationServiceSpy).toHaveBeenCalled();
   });
 
-
-  it('should navigate to create-account', () => {
-    const routerSpy = spyOn(component.router, 'navigate');
-    component.ngOnInit();
-    component.createAccount();
-    expect(routerSpy).toHaveBeenCalledWith(['/create-account']);
-  });
 });

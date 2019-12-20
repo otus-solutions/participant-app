@@ -8,11 +8,13 @@ import {CookieService} from 'ngx-cookie-service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthenticationService, private cookieService:CookieService) {}
+    constructor(private authenticationService: AuthenticationService, private cookieService: CookieService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const authToken = this.authenticationService.authToken;
-        let baseURL = this.cookieService.get(environment.API_URL) ? this.cookieService.get(environment.API_URL) + '/api' : environment.baseUrl;
+        const baseURL = this.cookieService.get(environment.API_URL) ?
+          this.cookieService.get(environment.API_URL) + '/api' :
+          environment.baseUrl;
         if (authToken && request.url.match(baseURL)) {
             request = request.clone({
                 setHeaders: {

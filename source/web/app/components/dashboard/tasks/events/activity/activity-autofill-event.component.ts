@@ -14,6 +14,6 @@ export class ActivityAutofillEventComponent implements EventI {
   }
 
   callPreview() {
-    window.location.href = 'http://localhost:51001/#/?activity=survey.json&token=123&callback=google.com' ;
+    window.location.href = 'http://143.54.83.45:51001/#/?activity=survey.json&token=123&callback=http://143.54.83.45:8081' ;
   }
 }

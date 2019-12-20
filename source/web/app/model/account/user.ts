@@ -1,4 +1,5 @@
 ﻿export class User {
+  public recruitmentNumber: string;
 
   public name: string;
 
@@ -13,6 +14,7 @@
   public billing: any;
 
   public fromJSON(userJson) {
+    this.recruitmentNumber = '123';
     this.name = userJson.name;
     this.surname = userJson.surname;
     this.email = userJson.email;
@@ -25,6 +27,7 @@
 
   public toJSON() {
     return {
+      recruitmentNumber: this.recruitmentNumber,
       name: this.name,
       surname: this.surname,
       email: this.email,

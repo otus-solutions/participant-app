@@ -2,9 +2,10 @@ import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {AlertService} from './alert.service';
-import {DashboardComponent} from '../components';
 import {Observable, of} from 'rxjs';
 import {CookieService} from 'ngx-cookie-service';
+import {DashboardComponent} from '../components/dashboard/dashboard.component';
+import {EventService} from './event.service';
 
 describe('AlertService', () => {
   let service;
@@ -14,13 +15,13 @@ describe('AlertService', () => {
     imports: [
       RouterTestingModule.withRoutes([
         {
-          path: 'dashboard/projects',
+          path: 'dashboard/tasks',
           component: DashboardComponent,
         }
       ]),
       HttpClientModule
     ],
-    providers: [CookieService]
+    providers: [CookieService, EventService]
   }).compileComponents());
 
   beforeEach(() => {

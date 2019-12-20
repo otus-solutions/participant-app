@@ -6,7 +6,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatNativeDateModule, MatRadioModule, MatSidenavModule,
+  MatListModule, MatMenuModule, MatNativeDateModule, MatProgressSpinnerModule, MatRadioModule, MatSidenavModule,
   MatToolbarModule, MatTooltipModule,
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
@@ -61,7 +61,7 @@ import {EventClientService} from './providers/rest/event-client.service';
     MatInputModule,
     MatIconModule,
     FlexLayoutModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('./ngsw-worker.js', {enabled: environment.production}),
     MatMenuModule,
     MatSidenavModule,
     RouterModule,
@@ -70,7 +70,8 @@ import {EventClientService} from './providers/rest/event-client.service';
     MatCardModule,
     MatDatepickerModule,
     MatRadioModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     EventService,

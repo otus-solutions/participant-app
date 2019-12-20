@@ -3,9 +3,9 @@ import {ErrorInterceptor} from './error.interceptor';
 import {of, throwError} from 'rxjs';
 import {createSpyObject} from '@netbasal/spectator';
 import {TestBed} from '@angular/core/testing';
-import {ErrorPageComponent} from '../../components';
 import {RouterTestingModule} from '@angular/router/testing';
 import {CookieService} from 'ngx-cookie-service';
+import {ErrorPageComponent} from '../../components/error-page/error-page.component';
 
 describe(`ErrorInterceptor`, () => {
   let service;
@@ -57,7 +57,7 @@ describe(`ErrorInterceptor`, () => {
       (r) => {},
       (e) => {}
     );
-    expect(routerSpy).toHaveBeenCalledWith(['/**'],{
+    expect(routerSpy).toHaveBeenCalledWith(['/**'], {
       queryParams: {
         returnUrl: '/return',
         errorCode: 500,

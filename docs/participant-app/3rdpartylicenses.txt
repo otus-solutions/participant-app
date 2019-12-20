@@ -124,9 +124,13 @@ THE SOFTWARE.
 
 @angular/material/menu
 
+@angular/material/progress-spinner
+
 @angular/material/sidenav
 
 @angular/material/toolbar
+
+@angular/material/tooltip
 
 @angular/platform-browser
 MIT

@@ -4,7 +4,7 @@ import {DashboardComponent} from './dashboard.component';
 import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AuthenticationService} from '../../providers';
+import {AuthenticationService, EventService} from '../../providers';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 
@@ -29,7 +29,7 @@ describe('DashboardComponent', () => {
             component: DashboardComponent,
             children: [
               {
-                path: 'projects',
+                path: 'tasks',
                 component: DashboardComponent
               }
             ]
@@ -40,12 +40,12 @@ describe('DashboardComponent', () => {
         MatListModule,
         BrowserAnimationsModule
       ],
-      providers: [CookieService, { provide: AuthenticationService, useValue: spy }]
+      providers: [CookieService, { provide: AuthenticationService, useValue: spy }, EventService]
     })
     .compileComponents();
 
     AuthenticationServiceSpy = TestBed.get(AuthenticationService);
-    AuthenticationServiceSpy.currentUserValue.id =  '424435153dsfsdf';
+    AuthenticationServiceSpy.currentUserValue.recruitmentNumber =  '424435153dsfsdf';
   }));
 
   beforeEach(() => {

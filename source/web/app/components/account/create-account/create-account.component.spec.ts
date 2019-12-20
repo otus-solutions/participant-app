@@ -14,9 +14,11 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccountClientService, AuthenticationService, AlertService} from '../../../providers';
+
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {CookieService} from 'ngx-cookie-service';
 import { Alert } from 'selenium-webdriver';
+import {SanitizeHtmlPipe} from '../../../utils/sanitize-html/sanitize-html.pipe';
 
 describe('CreateAccountComponent', () => {
   let fixture;
@@ -45,8 +47,9 @@ describe('CreateAccountComponent', () => {
         MatInputModule,
         BrowserAnimationsModule
       ],
-      declarations: [ CreateAccountComponent ],
+      declarations: [ CreateAccountComponent, SanitizeHtmlPipe ],
       providers: [
+        SanitizeHtmlPipe,
         CookieService,
         AlertService,
         AuthenticationService,
@@ -54,7 +57,7 @@ describe('CreateAccountComponent', () => {
         AccountClientService
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -73,32 +76,20 @@ describe('CreateAccountComponent', () => {
 
   it('should get controls', () => {
     app.ngOnInit();
-    expect(app.f.name).toEqual(jasmine.any(FormControl));
-    expect(app.f.surname).toEqual(jasmine.any(FormControl));
-    expect(app.f.sex).toEqual(jasmine.any(FormControl));
-    expect(app.f.email).toEqual(jasmine.any(FormControl));
     expect(app.f.password).toEqual(jasmine.any(FormControl));
     expect(app.f.confirmPassword).toEqual(jasmine.any(FormControl));
-    expect(app.f.birthdateObj).toEqual(jasmine.any(FormControl));
   });
 
   it('should invalidate form', () => {
     app.ngOnInit();
     app.onSubmit();
-    expect(app.f.name.hasError('required')).toEqual(true);
-    expect(app.f.surname.hasError('required')).toEqual(true);
-    expect(app.f.sex.hasError('required')).toEqual(true);
-    expect(app.f.email.hasError('required')).toEqual(true);
     expect(app.f.password.hasError('required')).toEqual(true);
     expect(app.f.confirmPassword.hasError('required')).toEqual(true);
-    expect(app.f.birthdateObj.hasError('required')).toEqual(true);
     app.f.password.setValue('Test');
     app.f.confirmPassword.setValue('Test2');
-    app.f.email.setValue('Test');
     app.onSubmit();
     expect(app.f.password.hasError('confirm')).toEqual(true);
     expect(app.f.confirmPassword.hasError('confirm')).toEqual(true);
-    expect(app.f.email.hasError('email')).toEqual(true);
   });
 
   it('should create new user', () => {
@@ -108,16 +99,11 @@ describe('CreateAccountComponent', () => {
     const routerSpy = spyOn(app.router, 'navigate');
     const accountClientServiceSpy = spyOn(app.accountClientService, 'register').and.returnValue(obs);
     app.ngOnInit();
-    app.f.name.setValue('Test');
-    app.f.surname.setValue('Test');
-    app.f.sex.setValue('Test');
-    app.f.email.setValue('Test@test.com');
     app.f.password.setValue('Test@1234');
     app.f.confirmPassword.setValue('Test@1234');
-    app.f.birthdateObj.setValue(new Date());
     app.onSubmit();
     expect(routerSpy).toHaveBeenCalledWith(['/login']);
-    expect(alertServiceSpy).toHaveBeenCalledWith('Usuario cadastrado com sucesso', true);
+    expect(alertServiceSpy).toHaveBeenCalledWith('Senha cadastrada com sucesso', true);
     expect(accountClientServiceSpy).toHaveBeenCalled();
   });
 
@@ -125,13 +111,8 @@ describe('CreateAccountComponent', () => {
     const alertServiceSpy = spyOn(app.alertService, 'error');
     const accountClientServiceSpy = spyOn(app.accountClientService, 'register').and.returnValue(throwError('test'));
     app.ngOnInit();
-    app.f.name.setValue('Test');
-    app.f.surname.setValue('Test');
-    app.f.sex.setValue('Test');
-    app.f.email.setValue('Test@test.com');
     app.f.password.setValue('Test@1234');
     app.f.confirmPassword.setValue('Test@1234');
-    app.f.birthdateObj.setValue(new Date());
     app.onSubmit();
     expect(alertServiceSpy).toHaveBeenCalledWith('test');
     expect(accountClientServiceSpy).toHaveBeenCalled();
