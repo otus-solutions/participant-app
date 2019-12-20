@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1576867604848,
+  "timestamp": 1576868571599,
   "index": "https://otus-solutions.github.io/participant-app/participant-app/index.html",
   "assetGroups": [
     {
@@ -9,7 +9,7 @@
       "updateMode": "prefetch",
       "urls": [
         "https://otus-solutions.github.io/participant-app/participant-app/index.html",
-        "https://otus-solutions.github.io/participant-app/participant-app/main.a1c3807e4389e0fa85f5.js",
+        "https://otus-solutions.github.io/participant-app/participant-app/main.087898fc167e0420858c.js",
         "https://otus-solutions.github.io/participant-app/participant-app/polyfills-es5.6b6d20bf7e270817ec87.js",
         "https://otus-solutions.github.io/participant-app/participant-app/polyfills.b8d4c901b057615d897a.js",
         "https://otus-solutions.github.io/participant-app/participant-app/runtime.a8ef3a8272419c2e2c66.js",
@@ -27,8 +27,8 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://otus-solutions.github.io/participant-app/participant-app/index.html": "c5bddc6c7566850a19c37a5e6ae5ef176e8ec48b",
-    "https://otus-solutions.github.io/participant-app/participant-app/main.a1c3807e4389e0fa85f5.js": "643fd3d3b909edf866037980c47b947305d0a752",
+    "https://otus-solutions.github.io/participant-app/participant-app/index.html": "727836fe22824997fe56a18efb8bd913de16e479",
+    "https://otus-solutions.github.io/participant-app/participant-app/main.087898fc167e0420858c.js": "6fa7b0418a82068541b6277a9d0ec41a17e70e65",
     "https://otus-solutions.github.io/participant-app/participant-app/polyfills-es5.6b6d20bf7e270817ec87.js": "580183f741e8099b379857bbef78f572480cb00e",
     "https://otus-solutions.github.io/participant-app/participant-app/polyfills.b8d4c901b057615d897a.js": "1d1b955c4b5ae158e3fbb7039af2091f6538d906",
     "https://otus-solutions.github.io/participant-app/participant-app/runtime.a8ef3a8272419c2e2c66.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
